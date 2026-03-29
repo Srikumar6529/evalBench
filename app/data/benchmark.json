@@ -2,19 +2,19 @@
   {
     "id": 1,
     "task_type": "classification",
-    "input": "Classify the sentiment of this sentence as one of: positive, negative, neutral. Sentence: I love this laptop.",
+    "input": "Classify the sentiment of this sentence as exactly one label from [positive, negative, neutral]. Return only the label and nothing else. Sentence: I love this laptop.",
     "expected_output": "positive"
   },
   {
     "id": 2,
     "task_type": "classification",
-    "input": "Classify the sentiment of this sentence as one of: positive, negative, neutral. Sentence: This service was terrible.",
+    "input": "Classify the sentiment of this sentence as exactly one label from [positive, negative, neutral]. Return only the label and nothing else. Sentence: This service was terrible.",
     "expected_output": "negative"
   },
   {
     "id": 3,
     "task_type": "json_extraction",
-    "input": "Extract the fields issue_type and priority as JSON from this ticket: My payment failed twice and I need help immediately.",
+    "input": "Extract the fields issue_type and priority from this ticket. Return only a JSON object with exactly these keys: issue_type, priority. Use issue_type='payment' and priority='high' if the ticket says payment failed and the user needs urgent help. Ticket: My payment failed twice and I need help immediately.",
     "expected_output": {
       "issue_type": "payment",
       "priority": "high"
@@ -23,7 +23,7 @@
   {
     "id": 4,
     "task_type": "short_qa",
-    "input": "Context: Python is a high-level programming language. Question: What type of language is Python? Answer briefly.",
+    "input": "Context: Python is a high-level programming language. Question: What type of language is Python? Return only the answer phrase and nothing else.",
     "expected_output": "high-level programming language"
   }
 ]

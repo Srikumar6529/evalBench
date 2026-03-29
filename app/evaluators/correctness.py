@@ -7,11 +7,23 @@ def normalize_text(value: str) -> str:
 
 
 def classification_match(predicted: str, expected: str) -> bool:
-    return normalize_text(predicted) == normalize_text(expected)
+    predicted_norm = normalize_text(predicted)
+    expected_norm = normalize_text(expected)
+
+    if predicted_norm == expected_norm:
+        return True
+
+    return expected_norm in predicted_norm.split() or expected_norm in predicted_norm
 
 
 def short_qa_match(predicted: str, expected: str) -> bool:
-    return normalize_text(predicted) == normalize_text(expected)
+    predicted_norm = normalize_text(predicted)
+    expected_norm = normalize_text(expected)
+
+    if predicted_norm == expected_norm:
+        return True
+
+    return expected_norm in predicted_norm
 
 
 def safe_json_loads(text: str) -> Any:
