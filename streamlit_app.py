@@ -74,7 +74,12 @@ def render_results(results: list):
             st.write(item.get("input"))
 
             st.write("**Expected Output**")
-            st.json(item.get("expected_output"))
+            expected_output = item.get("expected_output")
+
+            if isinstance(expected_output, (dict, list)):
+                st.json(expected_output)
+            else:
+                st.code(str(expected_output), language="text")
 
             st.write("**Predicted Output**")
             st.code(item.get("predicted_output", ""), language="text")
